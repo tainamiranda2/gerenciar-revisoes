@@ -1,7 +1,7 @@
 <template>
     <div>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <router-link class="" to="/">
+      <nav class="bg-dark text-white p-4">
+        <router-link class="router-links" to="/">
           Voltar
         </router-link>
       </nav>

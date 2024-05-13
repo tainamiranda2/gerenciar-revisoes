@@ -1,43 +1,45 @@
 <template>
     <div>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <RouterLink class="" to="/">
+      <nav class="bg-dark text-white p-4">
+        <RouterLink  class="router-links" to="/">
           Voltar
         </RouterLink>
-        <RouterLink to="/Veiculo">Todos os veiculos</RouterLink>
+        <RouterLink  class="router-links" to="/Veiculo">Todos os veiculos</RouterLink>
       </nav>
   
       <h1>Cadastrar veiculo</h1>
+      <form ref="formulario" @submit.prevent="register">
       <div class="mb-3">
         <label for="cliente_id" class="form-label">Cliente</label>
-        <select v-model="cliente_id" class="form-select" id="cliente_id">
+        <select v-model="cliente_id" class="form-select" id="cliente_id" required>
           <option value="" disabled selected>Selecione o cliente</option>
           <option v-for="cliente in clientes" :key="cliente.id" :value="cliente.id">{{ cliente.nome }}</option>
         </select>
       </div>
       <div class="mb-3">
         <label for="marca" class="form-label">Marca</label>
-        <input v-model="marca" type="text" class="form-control" id="marca" placeholder="Informe a marca do veiculo ">
+        <input v-model="marca" type="text" class="form-control" id="marca" placeholder="Informe a marca do veiculo" required>
       </div>
       <div class="mb-3">
         <label for="modelo" class="form-label">Modelo</label>
-        <input v-model="modelo" type="text" class="form-control" id="modelo" placeholder="Informe o modelo do veiculo">
+        <input v-model="modelo" type="text" class="form-control" id="modelo" placeholder="Informe o modelo do veiculo" required>
       </div>
       <div class="mb-3">
         <label for="cor" class="form-label">Cor</label>
-        <input v-model="cor" type="text" class="form-control" id="cor" placeholder="Informe a cor do veiculo">
+        <input v-model="cor" type="text" class="form-control" id="cor" placeholder="Informe a cor do veiculo" required>
       </div>
       <div class="mb-3">
         <label for="placa" class="form-label">Placa</label>
-        <input v-model="placa" type="text" class="form-control" id="placa" placeholder="Informe a placa do veiculo">
+        <input v-model="placa" type="text" class="form-control" id="placa" placeholder="Informe a placa do veiculo" required>
       </div>
       
       <div class="mb-3">
         <label for="ano_fabricacao" class="form-label">Ano de Fabricação</label>
-        <input v-model="ano_fabricacao" type="datetime-local" class="form-control" id="ano_fabricacao">
+        <input v-model="ano_fabricacao" type="datetime-local" class="form-control" id="ano_fabricacao" required>
       </div>
   
       <button @click="register" class="btn btn-primary">Cadastrar</button>
+      </form>
     </div>
   </template>
   
@@ -72,6 +74,7 @@
           });
       },
       register() {
+        if (this.$refs.formulario.checkValidity()) {
         axios.post('http://127.0.0.1:8000/api/veiculo', {
           cliente_id: this.cliente_id,
           marca: this.marca,
@@ -80,15 +83,15 @@
           cor: this.cor,
           ano_fabricacao: this.ano_fabricacao,
         }).then(response => {
-            if (response.status === 200) {
-          // Se o status code for 200, redirecione para a página /Veiculo
+            if (response.status === 201) {
           this.$router.push('/Veiculo');
         }
-       //   console.log(response.data);
+     
         }).catch(error => {
           console.error(error);
         });
       }
+    }
     }
   }
   </script>

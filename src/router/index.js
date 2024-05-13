@@ -23,7 +23,7 @@ const routes =[
         component: Home
     },
     {
-        path:'/cliente',
+        path:'/Cliente',
         name: 'Cliente',
         component: Cliente
     },
@@ -67,7 +67,7 @@ const routes =[
     },
     
     {
-        path:'/revisao',
+        path:'/Revisao',
         name: 'Revisao',
         component: Revisao
     },

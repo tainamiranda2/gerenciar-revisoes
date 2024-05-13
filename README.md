@@ -1,5 +1,11 @@
 ## consumo de api com axios
 
-## crud para veiculso, clientes, e revisões
+## crud para veiculos, clientes, e revisões
 
+## 
 ## bootstrap
+
+## paginação e prevençaõ de erros
+
+
+## graficos

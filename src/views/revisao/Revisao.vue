@@ -1,16 +1,17 @@
 <template>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <RouterLink class="" to="/" >
+    <nav class="bg-dark text-white p-4">
+      <RouterLink class="router-links" to="/" >
         Voltar
       </RouterLink>
      
-      <RouterLink to="/CadastrarRevisao">Cadastrar veiculo</RouterLink>
-      <RouterLink to="/revisao">Todos os veiculos</RouterLink>
+      <RouterLink class="router-links" to="/CadastrarRevisao">Cadastrar veiculo</RouterLink>
+      <RouterLink class="router-links" to="/Revisao">Todos os veiculos</RouterLink>
     </nav>
   
     <h1>Todos os veiculo cadastrados</h1>
-    <table class="table table-striped-columns">
-      <thead>
+    <template v-if="revisao.length > 0" >
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
         <tr>
           <th scope="col">Veiculo</th>
           <th scope="col">Tipo de serviço</th>
@@ -21,20 +22,37 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="rev in revisao" :key="rev.id" >
+        <tr v-for="rev in revisaoPaginados" :key="rev.id" >
           <td>{{ rev.veiculo_id }}</td> <!-- Alteração aqui -->
           <td>{{ rev.type_servicos }}</td>
           <td>{{ rev.quilometragem }}</td>
           <td>{{ rev.detalhes }}</td>
           <td>
-            <button @click="deleteRevisao(rev.id)">Apagar</button>
+            <button class="btn btn-danger" @click="deleteRevisao(rev.id)">Apagar</button>
           </td>
           <td>
-            <RouterLink :to="{ name: 'EditarRevisao', params: { id: rev.id } }">Editar</RouterLink>
+            <RouterLink class="btn btn-primary" :to="{ name: 'EditarRevisao', params: { id: rev.id } }">Editar</RouterLink>
           </td>
         </tr>
       </tbody>
     </table>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" :class="{ 'disabled': currentPage === 1 }">
+          <button class="page-link" @click="prevPage" :disabled="currentPage === 1">Anterior</button>
+        </li>
+        <li class="page-item" v-for="pageNumber in totalPages" :key="pageNumber" :class="{ 'active': currentPage === pageNumber }">
+          <button class="page-link" @click="changePage(pageNumber)">{{ pageNumber }}</button>
+        </li>
+        <li class="page-item" :class="{ 'disabled': currentPage === totalPages }">
+          <button class="page-link" @click="nextPage" :disabled="currentPage === totalPages">Próxima</button>
+        </li>
+      </ul>
+    </nav>
+  </template>
+  <template v-else>
+    <p>Não há nehuma revisão cadastrados.</p>
+  </template>
   </template>
   
   <script>
@@ -46,9 +64,21 @@
     name: 'Revisao',
     data() {
       return {
-        revisao: []
+        revisao: [],
+        currentPage: 1,
+      itemsPerPage: 5
       }
     },
+    computed: {
+    totalPages() {
+      return Math.ceil(this.revisao.length / this.itemsPerPage);
+    },
+    revisaoPaginados() {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      const endIndex = this.currentPage * this.itemsPerPage;
+      return this.revisao.slice(startIndex, endIndex);
+    }
+  },
     created() {
       this.fetchRevisao();
     },
@@ -82,7 +112,20 @@
             console.log(err);
             return ''; // Retornar vazio em caso de erro
           });
+      },
+    changePage(pageNumber) {
+      this.currentPage = pageNumber;
+    },
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
       }
+    },
+    prevPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+      }
+    },
     }
   }
   </script>

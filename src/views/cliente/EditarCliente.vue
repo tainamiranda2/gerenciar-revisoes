@@ -1,11 +1,11 @@
 <template>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <RouterLink class="" to="/" >
+    <nav class="bg-dark text-white p-4">
+        <RouterLink class="router-links" to="/" >
           Voltar
         </RouterLink>
        
-        <RouterLink to="/CadastrarCliente">Cadastrar cliente</RouterLink>
-        <RouterLink to="/Cliente">Todos os clientes</RouterLink>
+        <RouterLink class="router-links" to="/CadastrarCliente">Cadastrar cliente</RouterLink>
+        <RouterLink class="router-links" to="/Cliente">Todos os clientes</RouterLink>
       </nav>
     <div>
      
