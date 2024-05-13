@@ -84,7 +84,11 @@
     },
     methods: {
       fetchRevisao() {
-        axios.get('http://127.0.0.1:8000/api/revisao')
+        axios.get('https://2c6f-45-227-44-251.ngrok-free.app/api/revisao',{
+                headers: {
+    'ngrok-skip-browser-warning': 'true'
+                }
+  })
           .then(res => {
             this.revisao = res.data;
           })
@@ -93,7 +97,11 @@
           });
       },
       deleteRevisao(id) {
-        axios.delete(`http://127.0.0.1:8000/api/revisao/${id}`)
+        axios.delete(`https://2c6f-45-227-44-251.ngrok-free.app/api/revisao/${id}` ,{
+                headers: {
+    'ngrok-skip-browser-warning': 'true'
+                }
+      })
           .then(res => {
             this.fetchRevisao(); 
           })
@@ -103,7 +111,11 @@
       },
       getVeiculoPlaca(veiculoId) {
 
-        axios.get(`http://127.0.0.1:8000/api/veiculo/${veiculoId}`)
+        axios.get(`https://2c6f-45-227-44-251.ngrok-free.app//api/veiculo/${veiculoId}`,{
+                headers: {
+        'ngrok-skip-browser-warning': 'true'
+                    }
+      })
           .then(res => {
             return res.data.placa; // Retornar a placa do veículo
          console.log(res)

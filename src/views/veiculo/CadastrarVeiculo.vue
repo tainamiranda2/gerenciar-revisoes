@@ -65,7 +65,11 @@
     },
     methods: {
       getClientes() {
-        axios.get('http://127.0.0.1:8000/api/cliente')
+        axios.get('https://2c6f-45-227-44-251.ngrok-free.app/api/cliente',{
+                headers: {
+    'ngrok-skip-browser-warning': 'true'
+                }
+  })
           .then(response => {
             this.clientes = response.data;
           })
@@ -75,7 +79,11 @@
       },
       register() {
         if (this.$refs.formulario.checkValidity()) {
-        axios.post('http://127.0.0.1:8000/api/veiculo', {
+        axios.post('https://2c6f-45-227-44-251.ngrok-free.app/api/veiculo', {
+                headers: {
+    'ngrok-skip-browser-warning': 'true'
+                
+  },
           cliente_id: this.cliente_id,
           marca: this.marca,
           modelo: this.modelo,

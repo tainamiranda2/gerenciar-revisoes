@@ -58,7 +58,11 @@
     methods: {
       getRevisao() {
         const id = this.$route.params.id;
-        axios.get(`http://127.0.0.1:8000/api/revisao/${id}`)
+        axios.get(`https://2c6f-45-227-44-251.ngrok-free.app//api/revisao/${id}`,{
+                headers: {
+    'ngrok-skip-browser-warning': 'true'
+                }
+  })
           .then(response => {
             const revisao = response.data;
             this.id = revisao.id;
@@ -73,7 +77,11 @@
           });
       },
       getVeiculos() {
-        axios.get('http://127.0.0.1:8000/api/veiculo')
+        axios.get('https://2c6f-45-227-44-251.ngrok-free.app//api/veiculo',{
+                headers: {
+    'ngrok-skip-browser-warning': 'true'
+                }
+  })
           .then(response => {
             this.veiculos = response.data;
           })
@@ -82,7 +90,12 @@
           });
       },
       updateRevisao() {
-        axios.patch(`http://127.0.0.1:8000/api/revisao/${this.id}`, {
+        axios.patch(`https://2c6f-45-227-44-251.ngrok-free.app/api/revisao/${this.id}`,{
+                headers: {
+             'ngrok-skip-browser-warning': 'true'
+                
+              },
+  
           veiculo_id: this.veiculo_id,
           type_servicos: this.type_servicos,
           quilometragem: this.quilometragem,
@@ -90,7 +103,7 @@
           data_revisao: this.data_revisao
         }).then(response => {
           console.log(response.data);
-          this.$router.push('/revisao');
+          this.$router.push('/Revisao');
         }).catch(error => {
           console.error(error);
         });

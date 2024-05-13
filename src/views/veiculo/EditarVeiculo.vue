@@ -57,7 +57,11 @@
     },
     methods: {
         getClientes() {
-        axios.get('http://127.0.0.1:8000/api/cliente')
+        axios.get('https://2c6f-45-227-44-251.ngrok-free.app/api/cliente',{
+                headers: {
+    'ngrok-skip-browser-warning': 'true'
+                }
+  })
           .then(response => {
             this.clientes = response.data;
           })
@@ -67,7 +71,11 @@
       },
       recuperarDetalhesVeiculo() {
         const veiculoId = this.$route.params.id; 
-        axios.get(`http://127.0.0.1:8000/api/veiculo/${veiculoId}`)
+        axios.get(`https://2c6f-45-227-44-251.ngrok-free.app/api/veiculo/${veiculoId}`,{
+                headers: {
+    'ngrok-skip-browser-warning': 'true'
+                }
+  })
           .then(response => {
             const veiculo = response.data;
             // Preencher os campos do formulário com os detalhes do veículo
@@ -86,7 +94,11 @@
       editarVeiculo() {
         const veiculoId = this.$route.params.id; // Obtém o ID do veículo da rota
         // Fazer uma solicitação para editar o veículo com os dados atualizados
-        axios.patch(`http://127.0.0.1:8000/api/veiculo/${veiculoId}`, {
+        axios.patch(`https://2c6f-45-227-44-251.ngrok-free.app/api/veiculo/${veiculoId}`,{
+                headers: {
+    'ngrok-skip-browser-warning': 'true'
+                
+  } ,
           cliente_id: this.cliente_id,
           marca: this.marca,
           cor: this.cor,

@@ -46,19 +46,25 @@ export default {
 
     methods: {
         fetchClientes() {
-            axios.get('http://127.0.0.1:8000/api/relatorioCliente')
+            
+            axios.get('https://2c6f-45-227-44-251.ngrok-free.app/api/relatorioCliente',{
+                headers: {
+    'ngrok-skip-browser-warning': 'true'
+  }
+            })
                 .then(res => {
                     this.clientes = res.data;
                     this.mediaIdadeHomens = res.data.homens.idade_media;
                     this.mediaIdadeMulheres = res.data.mulheres.idade_media;
                  this.QtdHomens=res.data.homens.quantidade;
                  this.QtdMulheres=res.data.mulheres.quantidade;
-               //  console.log(this.QtdHomens )
+               console.log(this.QtdHomens )
                  this.drawChart();
                  //this.totalClientes = this.clientes.length;
                 })
                 .catch(error => {
                     console.error('Erro ao buscar clientes:', error);
+                    console.log(  this.clientes )
                 });
         },
 

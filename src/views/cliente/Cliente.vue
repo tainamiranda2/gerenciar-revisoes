@@ -89,7 +89,11 @@ export default {
   },
   methods: {
     fetchClientes() {
-      axios.get('http://127.0.0.1:8000/api/cliente')
+      axios.get('https://2c6f-45-227-44-251.ngrok-free.app/api/cliente',{
+                headers: {
+    'ngrok-skip-browser-warning': 'true'
+                }
+  })
         .then(res => {
           this.clientes = res.data;
         })
@@ -98,7 +102,11 @@ export default {
         });
     },
     deleteCliente(id) {
-      axios.delete(`http://127.0.0.1:8000/api/cliente/${id}`)
+      axios.delete(`https://2c6f-45-227-44-251.ngrok-free.app/api/cliente/${id}`,{
+                headers: {
+    'ngrok-skip-browser-warning': 'true'
+                }
+  })
         .then(res => {
           this.fetchClientes(); 
         })

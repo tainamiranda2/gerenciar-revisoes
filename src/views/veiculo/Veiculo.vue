@@ -84,7 +84,11 @@
     },
     methods: {
       fetchVeiculos() {
-        axios.get('http://127.0.0.1:8000/api/veiculo')
+        axios.get('https://2c6f-45-227-44-251.ngrok-free.app/api/veiculo',{
+                headers: {
+    'ngrok-skip-browser-warning': 'true'
+                }
+  })
           .then(res => {
             this.veiculo = res.data;
           })
@@ -94,7 +98,11 @@
       },
       deleteVeiculo(id) {
        
-        axios.delete(`http://127.0.0.1:8000/api/veiculo/${id}`)
+        axios.delete(`https://2c6f-45-227-44-251.ngrok-free.app/api/veiculo/${id}`,{
+                headers: {
+    'ngrok-skip-browser-warning': 'true'
+                }
+  })
           .then(res => {
             this.fetchVeiculos(); 
           })

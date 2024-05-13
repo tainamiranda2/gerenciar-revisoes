@@ -66,7 +66,7 @@
     methods: {
       register() {
         if (this.$refs.formulario.checkValidity()) {
-        axios.post('http://127.0.0.1:8000/api/cliente', {
+        axios.post('https://2c6f-45-227-44-251.ngrok-free.app/api/cliente', {
           nome: this.nome,
           telefone: this.telefone,
           email: this.email,

@@ -46,7 +46,11 @@ export default {
     },
     methods: {
         fetchVeiculos() {
-            axios.get('http://127.0.0.1:8000/api/relatorioVeiculo')
+            axios.get('https://2c6f-45-227-44-251.ngrok-free.app/api/relatorioVeiculo',{
+                headers: {
+    'ngrok-skip-browser-warning': 'true'
+                }
+  })
                 .then(response => {
                     const data = response.data;
                     // Transforme os dados em um formato adequado para o Google Charts
@@ -59,7 +63,11 @@ export default {
         },
 
         fetchQuemTemMaisVeiculos() {
-            axios.get('http://127.0.0.1:8000/api/relatorioVeiculo/Genero')
+            axios.get('https://2c6f-45-227-44-251.ngrok-free.app/api/relatorioVeiculo/Genero' ,{
+                headers: {
+    'ngrok-skip-browser-warning': 'true'
+                }
+  })
                 .then(response => {
                     this.quemTemMaisVeiculosData = response.data;
                     this.drawQuemTemMaisVeiculosChart();
