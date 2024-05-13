@@ -8,7 +8,7 @@ import { RouterLink } from 'vue-router';
         <RouterLink class="router-links" to="/DashbordVeiculo">Gerenciar veiculo </RouterLink>
       </div>
     </nav>
-    <p>Gerencie todo o fluxo de revisões de veiculo</p>
+    <h1>Gerênciar todo o fluxo de revisões de veiculos</h1>
     <img src="../../img/car.png"/>
 </template>
 
@@ -20,6 +20,6 @@ export default {
 
 <style>
 img{
-    width: 100%;
+    width: 50%;
 }
 </style>

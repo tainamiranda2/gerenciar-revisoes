@@ -9,11 +9,9 @@
             <RouterLink class="router-links" to="/DashbordVeiculo">Dashbord veiculos</RouterLink>
         </nav>
         <h2>Dashbord veiculo</h2>
-        <p> Informação de quem tem mais veículos (homens ou mulheres );</p>
-        <p> Todos os veículos por pessoa ordenado por nome de pessoa;</p>  
+
         <div id="chart_div"></div>
-        <p> Todas as marcas ordenadas pelo número de veículos;</p>
-        <p> Totais de marcas ordenadas do maior para o menor, separados entre homens e mulheres.</p>
+    
         <div id="chart_div_pi"></div>
     </div>
 </template>
