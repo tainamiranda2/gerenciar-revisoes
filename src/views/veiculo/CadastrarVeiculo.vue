@@ -65,7 +65,7 @@
     },
     methods: {
       getClientes() {
-        axios.get('https://2c6f-45-227-44-251.ngrok-free.app/api/cliente',{
+        axios.get('http://127.0.0.1:8000/api/cliente',{
                 headers: {
     'ngrok-skip-browser-warning': 'true'
                 }
@@ -79,7 +79,7 @@
       },
       register() {
         if (this.$refs.formulario.checkValidity()) {
-        axios.post('https://2c6f-45-227-44-251.ngrok-free.app/api/veiculo', {
+        axios.post('http://127.0.0.1:8000/api/veiculo', {
                 headers: {
     'ngrok-skip-browser-warning': 'true'
                 

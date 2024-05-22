@@ -61,7 +61,7 @@
     },
     created() {
       const idCliente = this.$route.params.id;
-      axios.get(`https://2c6f-45-227-44-251.ngrok-free.app/api/cliente/${idCliente}`,{
+      axios.get(`http://127.0.0.1:8000/api/cliente/${idCliente}`,{
                 headers: {
     'ngrok-skip-browser-warning': 'true'
                 }
@@ -74,7 +74,7 @@
     methods: {
       editarCliente() {
         const idCliente = this.$route.params.id;
-        axios.patch(`https://2c6f-45-227-44-251.ngrok-free.app//api/cliente/${idCliente}`,{
+        axios.patch(`http://127.0.0.1:8000//api/cliente/${idCliente}`,{
                 headers: {
     'ngrok-skip-browser-warning': 'true'
                 }

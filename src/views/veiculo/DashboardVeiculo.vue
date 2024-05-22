@@ -46,7 +46,7 @@ export default {
     },
     methods: {
         fetchVeiculos() {
-            axios.get('https://2c6f-45-227-44-251.ngrok-free.app/api/relatorioVeiculo',{
+            axios.get('http://127.0.0.1:8000/api/relatorioVeiculo',{
                 headers: {
     'ngrok-skip-browser-warning': 'true'
                 }
@@ -63,7 +63,7 @@ export default {
         },
 
         fetchQuemTemMaisVeiculos() {
-            axios.get('https://2c6f-45-227-44-251.ngrok-free.app/api/relatorioVeiculo/Genero' ,{
+            axios.get('http://127.0.0.1:8000/api/relatorioVeiculo/Genero' ,{
                 headers: {
     'ngrok-skip-browser-warning': 'true'
                 }

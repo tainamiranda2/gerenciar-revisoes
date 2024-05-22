@@ -58,7 +58,7 @@
     methods: {
       getRevisao() {
         const id = this.$route.params.id;
-        axios.get(`https://2c6f-45-227-44-251.ngrok-free.app//api/revisao/${id}`,{
+        axios.get(`http://127.0.0.1:8000//api/revisao/${id}`,{
                 headers: {
     'ngrok-skip-browser-warning': 'true'
                 }
@@ -77,7 +77,7 @@
           });
       },
       getVeiculos() {
-        axios.get('https://2c6f-45-227-44-251.ngrok-free.app//api/veiculo',{
+        axios.get('http://127.0.0.1:8000//api/veiculo',{
                 headers: {
     'ngrok-skip-browser-warning': 'true'
                 }
@@ -90,7 +90,7 @@
           });
       },
       updateRevisao() {
-        axios.patch(`https://2c6f-45-227-44-251.ngrok-free.app/api/revisao/${this.id}`,{
+        axios.patch(`http://127.0.0.1:8000/api/revisao/${this.id}`,{
                 headers: {
              'ngrok-skip-browser-warning': 'true'
                 

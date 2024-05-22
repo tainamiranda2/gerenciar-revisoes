@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     getVeiculos() {
-      axios.get('https://2c6f-45-227-44-251.ngrok-free.app/api/veiculo',{
+      axios.get('http://127.0.0.1:8000/api/veiculo',{
                 headers: {
     'ngrok-skip-browser-warning': 'true'
                 }
@@ -71,7 +71,7 @@ export default {
     },
     register() {
       if (this.$refs.formulario.checkValidity()) {
-        axios.post('https://2c6f-45-227-44-251.ngrok-free.app/api/revisao', {
+        axios.post('http://127.0.0.1:8000/api/revisao', {
           
                 headers: {
                 'ngrok-skip-browser-warning': 'true'

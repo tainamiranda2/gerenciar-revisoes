@@ -47,7 +47,7 @@ export default {
     methods: {
         fetchClientes() {
             
-            axios.get('https://2c6f-45-227-44-251.ngrok-free.app/api/relatorioCliente',{
+            axios.get('http://127.0.0.1:8000/api/relatorioCliente',{
                 headers: {
     'ngrok-skip-browser-warning': 'true'
   }

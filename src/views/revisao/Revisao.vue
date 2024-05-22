@@ -84,7 +84,7 @@
     },
     methods: {
       fetchRevisao() {
-        axios.get('https://2c6f-45-227-44-251.ngrok-free.app/api/revisao',{
+        axios.get('http://127.0.0.1:8000/api/revisao',{
                 headers: {
     'ngrok-skip-browser-warning': 'true'
                 }
@@ -97,7 +97,7 @@
           });
       },
       deleteRevisao(id) {
-        axios.delete(`https://2c6f-45-227-44-251.ngrok-free.app/api/revisao/${id}` ,{
+        axios.delete(`http://127.0.0.1:8000/api/revisao/${id}` ,{
                 headers: {
     'ngrok-skip-browser-warning': 'true'
                 }
@@ -111,7 +111,7 @@
       },
       getVeiculoPlaca(veiculoId) {
 
-        axios.get(`https://2c6f-45-227-44-251.ngrok-free.app//api/veiculo/${veiculoId}`,{
+        axios.get(`http://127.0.0.1:8000//api/veiculo/${veiculoId}`,{
                 headers: {
         'ngrok-skip-browser-warning': 'true'
                     }
